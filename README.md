@@ -2,7 +2,7 @@
 
 A small browser implementation of a Catan-like game with a basic bot AI.
 
-Includes a very special custom win sound!
+Includes very special custom win and lose sounds!
 
 ## Requirements
 - Node.js 18+ (or 20+ recommended)

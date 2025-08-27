@@ -1,9 +1,10 @@
 // src/audio/sfx.ts
-type Name = 'win'
+type Name = 'win' | 'lose'
 
 // Prefer m4a (AAC), then mp3, then wav
 const SOURCES: Record<Name, string[]> = {
   win: ['/sounds/win.m4a', '/sounds/win.mp3', '/sounds/win.wav'],
+  lose: ['/sounds/lose.m4a', '/sounds/lose.mp3', '/sounds/lose.wav'],
 }
 
 function pickPlayable(srcs: string[]): string {

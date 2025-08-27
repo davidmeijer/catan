@@ -47,6 +47,10 @@ function initialGame(totalPlayers: number, humans: number, chosenTargetVP: numbe
   return s
 }
 
+function playWinOrLoseSfx(winner: Player) {
+  playSfx(winner.kind === 'BOT' ? 'lose' : 'win')
+}
+
 export default function App() {
   const [game, setGame] = React.useState<GameState | null>(null)
   const [totalPlayers, setTotalPlayers] = React.useState(3)
@@ -91,8 +95,9 @@ export default function App() {
       s.lastRoll = undefined
       if (s.players[s.currentPlayer].vp >= s.targetVP) {
         s.phase = 'GAME_OVER'
-        addLog(s, `${s.players[s.currentPlayer].name} wins!`)
-        playSfx('win')
+        const winner = s.players[s.currentPlayer]
+        addLog(s, `${winner.name} wins!`)
+        playWinOrLoseSfx(winner)
       } else {
         s.currentPlayer = (s.currentPlayer + 1) % s.players.length
       }
@@ -258,8 +263,9 @@ export default function App() {
     s2.lastRoll = undefined
     if (s2.players[s2.currentPlayer].vp >= s2.targetVP) {
       s2.phase = 'GAME_OVER'
-      addLog(s2, `${s2.players[s2.currentPlayer].name} wins!`)
-      playSfx('win')
+      const winner = s2.players[s2.currentPlayer]
+      addLog(s2, `${winner.name} wins!`)
+      playWinOrLoseSfx(winner)
     } else {
       s2.currentPlayer = (s2.currentPlayer + 1) % s2.players.length
     }
@@ -324,8 +330,9 @@ export default function App() {
   function maybeWinOrSet(s2: GameState) {
     if (s2.players[s2.currentPlayer].vp >= s2.targetVP) {
       s2.phase = 'GAME_OVER'
-      addLog(s2, `${s2.players[s2.currentPlayer].name} wins!`)
-      playSfx('win')
+      const winner = s2.players[s2.currentPlayer]
+      addLog(s2, `${winner.name} wins!`)
+      playWinOrLoseSfx(winner)
     }
     setGame(s2)
   }
