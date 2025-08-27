@@ -1,0 +1,50 @@
+# --- Node / package managers ---
+node_modules/
+# lockfiles are useful to commit, so don't ignore:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# --- Vite / build output ---
+dist/
+.vite/
+*.tsbuildinfo
+
+# --- Logs & diagnostics ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+debug.log
+*.log
+
+# --- Testing / coverage ---
+coverage/
+.nyc_output/
+
+# --- Env files (keep examples) ---
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# --- Editors & OS junk ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json  # keep shared workspace settings if you add them
+
+# --- Misc caches / temp ---
+.cache/
+.parcel-cache/
+tmp/
+temp/
+*.tmp
+
+# --- Tooling / deployment (optional) ---
+.vercel/
+.netlify/
+firebase-debug.log
